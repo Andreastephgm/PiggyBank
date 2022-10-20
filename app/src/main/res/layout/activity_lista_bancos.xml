@@ -62,6 +62,7 @@
                             android:id="@+id/button"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:backgroundTint="#8BC34A"
                             android:text="seleccionar" />
                     </LinearLayout>
 
@@ -108,6 +109,7 @@
                             android:id="@+id/button"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:backgroundTint="#8BC34A"
                             android:text="seleccionar" />
                     </LinearLayout>
 
@@ -154,6 +156,7 @@
                             android:id="@+id/button"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:backgroundTint="#8BC34A"
                             android:text="Seleccionar" />
                     </LinearLayout>
 
@@ -246,6 +249,7 @@
                             android:id="@+id/button"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:backgroundTint="#8BC34A"
                             android:text="Button" />
                     </LinearLayout>
 
@@ -263,7 +267,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="100dp"
         android:text="Lista de Bancos"
-        android:textColor="#673AB7"
+        android:textColor="#8BC34A"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
