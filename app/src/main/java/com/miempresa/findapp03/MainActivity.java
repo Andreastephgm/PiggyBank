@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-      buttonLogin = findViewById(R.id.buttonLogin);
+       buttonLogin = findViewById(R.id.buttonLogin);
        TextUser = findViewById(R.id.textUsername);
        TextPassword = findViewById(R.id.textPassword);
 
@@ -41,22 +41,37 @@ public class MainActivity extends AppCompatActivity {
                     Snackbar snackbar = Snackbar.make(buttonLogin, "el usuario ingreso con exito", Snackbar.LENGTH_LONG);
                     snackbar.show();
                     irRegistrarse(usuario, password);
-
-
-                } else{
+                }else{
                     Context context  = getApplicationContext();
                     CharSequence texto = "credenciales invalidas";
                     int duracion = Toast.LENGTH_LONG;
                     Toast toast = Toast.makeText(context, texto, duracion);
                     toast.show();
+                } if(usuario.equals("admin") && password.equals("2010")){
+                    Snackbar snackbar = Snackbar.make(buttonLogin,"el usuario ingreso con exito", Snackbar.LENGTH_LONG);
+                    snackbar.show();
+                    irAdminBancos(usuario,password);
+                }else{
+                    Context context = getApplicationContext();
+                    CharSequence texto = "credenciales invalidas";
+                    int duracion = Toast.LENGTH_LONG;
+                    Toast toast = Toast.makeText(context, texto, duracion);
+                    toast.show();
                 }
-
             }
         });
     }
 
     public void irRegistrarse(String usuario, String password){
         Intent i = new Intent(this, ListaBancosActivity.class
+        );
+        i.putExtra("usuario", usuario);
+        i.putExtra("password", password);
+        startActivity(i);
+    }
+
+    public void irAdminBancos(String usuario, String password){
+        Intent i = new Intent(this, AdmActivity.class
         );
         i.putExtra("usuario", usuario);
         i.putExtra("password", password);
