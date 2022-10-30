@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       buttonLogin = findViewById(R.id.buttonLogin);
+      buttonLogin = findViewById(R.id.buttonLogin);
        TextUser = findViewById(R.id.textUsername);
        TextPassword = findViewById(R.id.textPassword);
 
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                     irRegistrarse(usuario, password);
 
 
-                }else{
+                } else{
                     Context context  = getApplicationContext();
                     CharSequence texto = "credenciales invalidas";
                     int duracion = Toast.LENGTH_LONG;
