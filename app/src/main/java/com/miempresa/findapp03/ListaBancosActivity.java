@@ -9,11 +9,11 @@ import android.widget.Button;
 
 public class ListaBancosActivity extends AppCompatActivity {
 
-    private Button buttonSeleccionar1;
-    private Button buttonSeleccionar2;
-    private Button buttonSeleccionar3;
-    private Button buttonSeleccionar4;
-    private Button buttonSeleccionar5;
+    Button buttonSeleccionar1;
+    Button buttonSeleccionar2;
+    Button buttonSeleccionar3;
+    Button buttonSeleccionar4;
+    Button buttonSeleccionar5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,34 @@ public class ListaBancosActivity extends AppCompatActivity {
         buttonSeleccionar5 = findViewById(R.id.buttonSeleccionar5);
 
         buttonSeleccionar1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ListaBancosActivity.this, Banco.class);
+                startActivity(i);
+            }
+        });
+        buttonSeleccionar2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ListaBancosActivity.this, Banco.class);
+                startActivity(i);
+            }
+        });
+        buttonSeleccionar3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ListaBancosActivity.this, Banco.class);
+                startActivity(i);
+            }
+        });
+        buttonSeleccionar4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ListaBancosActivity.this, Banco.class);
+                startActivity(i);
+            }
+        });
+        buttonSeleccionar5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(ListaBancosActivity.this, Banco.class);

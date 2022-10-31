@@ -8,20 +8,19 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.FirebaseAuth;
+//import com.google.android.material.snackbar.Snackbar;
+//import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button buttonLogin;
+    Button buttonLogin;
     private EditText TextUser, TextPassword;
     private String usuario, password;
-    private CheckBox sesion;
-    private FirebaseAuth miAutenticacion;
+    Button buttonNewUSer;
+    //private FirebaseAuth miAutenticacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
        buttonLogin = findViewById(R.id.buttonLogin);
        TextUser = findViewById(R.id.textUsername);
        TextPassword = findViewById(R.id.textPassword);
+       buttonNewUSer = findViewById(R.id.buttonNewUser);
 
         buttonLogin.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -45,14 +45,14 @@ public class MainActivity extends AppCompatActivity {
                     int duracion = Toast.LENGTH_LONG;
                     Toast toast = Toast.makeText(context, texto, duracion);
                     toast.show();
-                    irRegistrarse(usuario, password);
+                    irLogin(usuario, password);
                 }if(usuario.equals("admin") && password.equals("2010")){
                     Context context  = getApplicationContext();
                     CharSequence texto = "El administrador ingreso con exito";
                     int duracion = Toast.LENGTH_LONG;
                     Toast toast = Toast.makeText(context, texto, duracion);
                     toast.show();
-                    irAdminBancos(usuario,password);
+                    irLoginAdm(usuario,password);
                 }else{
                     Context context = getApplicationContext();
                     CharSequence texto = "credenciales invalidas";
@@ -62,19 +62,29 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        buttonNewUSer.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                irRegistrarse();
+            }
+        });
     }
 
-    public void irRegistrarse(String usuario, String password){
-        Intent i = new Intent(this, ListaBancosActivity.class
-        );
+    public void irLogin(String usuario, String password){
+        Intent i = new Intent(this, ListaBancosActivity.class);
         i.putExtra("usuario", usuario);
         i.putExtra("password", password);
         startActivity(i);
     }
 
-    public void irAdminBancos(String usuario, String password){
-        Intent i = new Intent(this, AdmActivity.class
-        );
+    public void irRegistrarse(){
+        Intent i = new Intent(this, activity_profile.class);
+        startActivity(i);
+    }
+
+    public void irLoginAdm(String usuario, String password){
+        Intent i = new Intent(this, AdmActivity.class);
         i.putExtra("usuario", usuario);
         i.putExtra("password", password);
         startActivity(i);
