@@ -27,11 +27,7 @@ public class AdmActivity extends AppCompatActivity {
 
                 Intent i = new Intent(AdmActivity.this, AgregarBanco.class);
                 startActivity(i);
-                Context context  = getApplicationContext();
-                CharSequence texto = "Se agrego el banco";
-                int duracion = Toast.LENGTH_LONG;
-                Toast toast = Toast.makeText(context, texto, duracion);
-                toast.show();
+
             }
         });
     }
