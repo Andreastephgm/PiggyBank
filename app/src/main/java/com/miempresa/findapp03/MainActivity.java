@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText TextUser, TextPassword;
     private String usuario, password;
     private CheckBox sesion;
+    private FirebaseAuth miAutenticacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,13 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(context, texto, duracion);
                     toast.show();
                     irRegistrarse(usuario, password);
-                }else{
-                    Context context  = getApplicationContext();
-                    CharSequence texto = "credenciales invalidas";
-                    int duracion = Toast.LENGTH_LONG;
-                    Toast toast = Toast.makeText(context, texto, duracion);
-                    toast.show();
-                } if(usuario.equals("admin") && password.equals("2010")){
+                }if(usuario.equals("admin") && password.equals("2010")){
                     Context context  = getApplicationContext();
                     CharSequence texto = "El administrador ingreso con exito";
                     int duracion = Toast.LENGTH_LONG;
