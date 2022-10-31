@@ -7,7 +7,7 @@
     tools:context=".AdmActivity">
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/buttonCrearBanco"
         android:layout_width="165dp"
         android:layout_height="48dp"
         android:backgroundTint="#91BE2F"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.155" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/buttonEliminarBanco"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#91BE2F"
@@ -29,6 +29,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCrearBanco"
         app:layout_constraintVertical_bias="0.117" />
 </androidx.constraintlayout.widget.ConstraintLayout>

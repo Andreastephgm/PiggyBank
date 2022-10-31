@@ -6,22 +6,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button buttonLogin;
     private EditText TextUser, TextPassword;
     private String usuario, password;
-    private FirebaseAuth miautenticacion;
+    private CheckBox sesion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +37,12 @@ public class MainActivity extends AppCompatActivity {
                 usuario = TextUser.getText().toString();
                 password = TextPassword.getText().toString();
 
-                if(usuario.equals("user") && password.equals("123")){
-                    Snackbar snackbar = Snackbar.make(buttonLogin, "el usuario ingreso con exito", Snackbar.LENGTH_LONG);
-                    snackbar.show();
+                if(usuario.equals("user") && password.equals("123")) {
+                    Context context  = getApplicationContext();
+                    CharSequence texto = "El usuario ingreso con exito";
+                    int duracion = Toast.LENGTH_LONG;
+                    Toast toast = Toast.makeText(context, texto, duracion);
+                    toast.show();
                     irRegistrarse(usuario, password);
                 }else{
                     Context context  = getApplicationContext();
@@ -50,8 +51,11 @@ public class MainActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(context, texto, duracion);
                     toast.show();
                 } if(usuario.equals("admin") && password.equals("2010")){
-                    Snackbar snackbar = Snackbar.make(buttonLogin,"el usuario ingreso con exito", Snackbar.LENGTH_LONG);
-                    snackbar.show();
+                    Context context  = getApplicationContext();
+                    CharSequence texto = "El administrador ingreso con exito";
+                    int duracion = Toast.LENGTH_LONG;
+                    Toast toast = Toast.makeText(context, texto, duracion);
+                    toast.show();
                     irAdminBancos(usuario,password);
                 }else{
                     Context context = getApplicationContext();
