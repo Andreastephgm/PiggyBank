@@ -27,7 +27,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activity_porfile"
+            android:name=".activity_profile"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

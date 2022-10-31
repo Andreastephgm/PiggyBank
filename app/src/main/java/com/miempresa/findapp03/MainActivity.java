@@ -6,11 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -41,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
                     Snackbar snackbar = Snackbar.make(buttonLogin, "el usuario ingreso con exito", Snackbar.LENGTH_LONG);
                     snackbar.show();
                     irRegistrarse(usuario, password);
+                    Context context  = getApplicationContext();
+                    CharSequence texto = "credenciales validas";
+                    int duracion = Toast.LENGTH_LONG;
+                    Toast toast = Toast.makeText(context, texto, duracion);
+                    toast.show();
                 }else{
                     Context context  = getApplicationContext();
                     CharSequence texto = "credenciales invalidas";
