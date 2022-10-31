@@ -14,12 +14,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button buttonLogin;
     private EditText TextUser, TextPassword;
     private String usuario, password;
+    private FirebaseAuth miautenticacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
