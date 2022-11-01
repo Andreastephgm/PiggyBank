@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.333" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/NewUser"
         android:layout_width="151dp"
         android:layout_height="54dp"
         android:backgroundTint="#8BC34A"
@@ -94,7 +94,7 @@
         android:hint="Contraseña"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCreateNewUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idCorreo"
         app:layout_constraintVertical_bias="0.375" />

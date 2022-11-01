@@ -25,8 +25,6 @@ public class AdmActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(AdmActivity.this, AgregarBanco.class);
-                startActivity(i);
 
             }
         });

@@ -10,9 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.google.firebase.auth.FirebaseAuth;
 
 //import com.google.android.material.snackbar.Snackbar;
-//import com.google.firebase.auth.FirebaseAuth;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText TextUser, TextPassword;
     private String usuario, password;
     Button buttonNewUSer;
-    //private FirebaseAuth miAutenticacion;
+    private FirebaseAuth miAutenticacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
