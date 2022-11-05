@@ -1,5 +1,6 @@
 package com.miempresa.findapp03;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -10,6 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 //import com.google.android.material.snackbar.Snackbar;
@@ -19,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button buttonLogin;
     private EditText TextUser, TextPassword;
-    private String usuario, password;
+    private String email, password;
     Button buttonNewUSer;
     private FirebaseAuth miAutenticacion;
 
@@ -32,34 +37,24 @@ public class MainActivity extends AppCompatActivity {
        TextUser = findViewById(R.id.textUsername);
        TextPassword = findViewById(R.id.textPassword);
        buttonNewUSer = findViewById(R.id.buttonNewUser);
+       miAutenticacion = FirebaseAuth.getInstance();
 
         buttonLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
 
-                usuario = TextUser.getText().toString();
+                email = TextUser.getText().toString();
                 password = TextPassword.getText().toString();
+                ingresar(email,password);
 
-                if(usuario.equals("user") && password.equals("123")) {
-                    Context context  = getApplicationContext();
-                    CharSequence texto = "El usuario ingreso con exito";
-                    int duracion = Toast.LENGTH_LONG;
-                    Toast toast = Toast.makeText(context, texto, duracion);
-                    toast.show();
-                    irLogin(usuario, password);
-                }if(usuario.equals("admin") && password.equals("2010")){
+
+                if(email.equals("admin") && password.equals("2010")){
                     Context context  = getApplicationContext();
                     CharSequence texto = "El administrador ingreso con exito";
                     int duracion = Toast.LENGTH_LONG;
                     Toast toast = Toast.makeText(context, texto, duracion);
                     toast.show();
-                    irLoginAdm(usuario,password);
-                }else{
-                    Context context = getApplicationContext();
-                    CharSequence texto = "credenciales invalidas";
-                    int duracion = Toast.LENGTH_LONG;
-                    Toast toast = Toast.makeText(context, texto, duracion);
-                    toast.show();
+                    irLoginAdm(email,password);
                 }
             }
         });
@@ -67,10 +62,51 @@ public class MainActivity extends AppCompatActivity {
         buttonNewUSer.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+
                 irRegistrarse();
             }
         });
     }
+
+    public void ingresar(String email, String password){
+
+        miAutenticacion.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+
+                            Toast.makeText(MainActivity.this, "El ingreso ha sido exitoso", Toast.LENGTH_LONG).show();
+                            FirebaseUser usuarioActual = miAutenticacion.getCurrentUser();
+                            actualizarUI(usuarioActual);
+
+                        }else{
+                            Toast.makeText(MainActivity.this, "Los datos son incorrectos", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    public void actualizarUI(FirebaseUser email){
+
+        if(email != null){
+            Intent i = new Intent(MainActivity.this, activity_welcome.class);
+            startActivity(i);
+        }else{
+            Toast.makeText(MainActivity.this, "Ingrese sus datos de acceso", Toast.LENGTH_LONG).show();
+
+        }
+
+    }
+
 
     public void irLogin(String usuario, String password){
         Intent i = new Intent(this, ListaBancosActivity.class);

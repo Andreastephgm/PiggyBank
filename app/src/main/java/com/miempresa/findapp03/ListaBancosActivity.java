@@ -1,11 +1,19 @@
 package com.miempresa.findapp03;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class ListaBancosActivity extends AppCompatActivity {
 
@@ -15,10 +23,12 @@ public class ListaBancosActivity extends AppCompatActivity {
     Button buttonSeleccionar4;
     Button buttonSeleccionar5;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_bancos);
+
 
         buttonSeleccionar1 = findViewById(R.id.buttonSeleccionar1);
         buttonSeleccionar2 = findViewById(R.id.buttonSeleccionar2);
@@ -26,7 +36,11 @@ public class ListaBancosActivity extends AppCompatActivity {
         buttonSeleccionar4 = findViewById(R.id.buttonSeleccionar4);
         buttonSeleccionar5 = findViewById(R.id.buttonSeleccionar5);
 
+
+
         buttonSeleccionar1.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(ListaBancosActivity.this, Banco.class);
@@ -62,4 +76,6 @@ public class ListaBancosActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
