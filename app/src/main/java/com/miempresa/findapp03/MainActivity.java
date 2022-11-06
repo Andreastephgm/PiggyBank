@@ -92,9 +92,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
     }
-
     public void actualizarUI(FirebaseUser email){
 
         if(email != null){
