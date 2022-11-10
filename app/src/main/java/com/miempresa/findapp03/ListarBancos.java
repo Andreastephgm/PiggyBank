@@ -15,9 +15,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,17 +35,17 @@ import java.util.List;
 public class ListarBancos extends AppCompatActivity {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("bancos");
+    DatabaseReference myRef = database.getReference("Banco");
     RecyclerView reciclerBancos;
-    AdaptadorBancos adaptadorBancos;
     List<Banco> listaBancos;
     ArrayList<Banco> bancos = new ArrayList<>();
-
+    AdaptadorBancos adaptadorBancos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_bancos);
+
         reciclerBancos = findViewById(R.id.reciclerbancos);
         listaBancos = new ArrayList<>();
         myRef.addChildEventListener(childEventListener);
@@ -53,12 +56,22 @@ public class ListarBancos extends AppCompatActivity {
         reciclerBancos.setAdapter(adaptadorBancos);
         refrescarLista();
 
+        reciclerBancos = findViewById(R.id.reciclerbancos);
+        listaBancos = new ArrayList<>();
+        myRef.addChildEventListener(childEventListener);
+        adaptadorBancos = new AdaptadorBancos(listaBancos);
+        mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        reciclerBancos.setLayoutManager(mLayoutManager);
+        reciclerBancos.setItemAnimator(new DefaultItemAnimator());
+        reciclerBancos.setAdapter(adaptadorBancos);
+        refrescarLista();
+        /*
         reciclerBancos.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), reciclerBancos, new RecyclerTouchListener.ClickListener() {
             @Override
-            public void onClick(View view, int position) {
+            private void onClick(View view, int position) {
                 AlertDialog dialogo = new AlertDialog
                         .Builder(ListarBancos.this)
-                        .setPositiveButton("Si",  (dialog ,which)->{
+                        .setPositiveButton("Si", (dialog, which) -> {
                             Banco b = listaBancos.get(position);
                             Intent i = new Intent(ListarBancos.this, EditarBanco.class);
                             i.putExtra("id", b.getId());
@@ -69,8 +82,8 @@ public class ListarBancos extends AppCompatActivity {
                             i.putExtra("horario", b.getHorario());
                             startActivity(i);
 
-                        } )
-                        .setNegativeButton("No",  (dialog ,which)->{
+                        })
+                        .setNegativeButton("No", (dialog, which) -> {
                             dialog.dismiss();
                         })
                         .setTitle("Prueba click")
@@ -83,7 +96,7 @@ public class ListarBancos extends AppCompatActivity {
             public void onLongClick(View view, int position) {
                 AlertDialog dialogo = new AlertDialog
                         .Builder(ListarBancos.this)
-                        .setPositiveButton("Si",  (dialog ,which)->{
+                        .setPositiveButton("Si", (dialog, which) -> {
                             //Agregar metodo borrar al controlador
                             Banco b = listaBancos.get(position);
                             String nombre = b.getNombre();
@@ -95,8 +108,8 @@ public class ListarBancos extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "El banco se elimino con exito", Toast.LENGTH_LONG).show();
 
 
-                        } )
-                        .setNegativeButton("No",  (dialog ,which)->{
+                        })
+                        .setNegativeButton("No", (dialog, which) -> {
                             dialog.dismiss();
                         })
                         .setTitle("Confirmacion para eliminar")
@@ -105,7 +118,7 @@ public class ListarBancos extends AppCompatActivity {
                 dialogo.show();
 
             }
-        }));
+        }));*/
 
     }
 
@@ -117,9 +130,8 @@ public class ListarBancos extends AppCompatActivity {
         // we are use add listerner
         // for event listener method
         // which is called with query.
-        final String nombre=listaBancos.get(position).getNombre();
+        final String nombre = listaBancos.get(position).getNombre();
         Query applesQuery = myRef.child(nombre);
-
 
 
         //sQuery query = myRef.child(name);
@@ -145,17 +157,17 @@ public class ListarBancos extends AppCompatActivity {
         refrescarLista();
     }
 
-    public void borrarBanco(Banco b){
+    public void borrarBanco(Banco b) {
         bancos.remove(b);
     }
 
-    public void agregarMascota(Banco b){
+    public void agregarMascota(Banco b) {
         bancos.add(b);
         refrescarLista();
     }
 
-    public void refrescarLista(){
-        if(adaptadorBancos == null) return;
+    public void refrescarLista() {
+        if (adaptadorBancos == null) return;
         listaBancos = bancos;
         adaptadorBancos.setListaBancos(listaBancos);
         adaptadorBancos.notifyDataSetChanged();
@@ -167,14 +179,14 @@ public class ListarBancos extends AppCompatActivity {
         @Override
         public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
             Banco b = snapshot.getValue(Banco.class);
-            if(b!= null) agregarMascota(b);
+            if (b != null) agregarMascota(b);
 
         }
 
         @Override
         public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
             Banco b = snapshot.getValue(Banco.class);
-            if(b!= null) agregarMascota(b);
+            if (b != null) agregarMascota(b);
 
         }
 
@@ -191,7 +203,7 @@ public class ListarBancos extends AppCompatActivity {
         public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
             Banco b = snapshot.getValue(Banco.class);
-            if(b!= null) agregarMascota(b);
+            if (b != null) agregarMascota(b);
         }
 
         @Override
@@ -199,7 +211,7 @@ public class ListarBancos extends AppCompatActivity {
 
         }
     };
-
-
-
 }
+
+
+

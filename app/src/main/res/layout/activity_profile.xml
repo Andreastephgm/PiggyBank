@@ -100,7 +100,7 @@
             android:text="Email:" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnAgregar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#8BC34A"

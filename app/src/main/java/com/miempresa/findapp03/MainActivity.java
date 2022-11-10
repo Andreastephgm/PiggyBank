@@ -47,14 +47,13 @@ public class MainActivity extends AppCompatActivity {
                 password = TextPassword.getText().toString();
                 ingresar(email,password);
 
-
                 if(email.equals("admin") && password.equals("2010")){
                     Context context  = getApplicationContext();
                     CharSequence texto = "El administrador ingreso con exito";
                     int duracion = Toast.LENGTH_LONG;
                     Toast toast = Toast.makeText(context, texto, duracion);
                     toast.show();
-                    irLoginAdm(email,password);
+                    irLoginAdm(email, password);
                 }
             }
         });
@@ -80,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                             FirebaseUser usuarioActual = miAutenticacion.getCurrentUser();
                             actualizarUI(usuarioActual);
 
+
                         }else{
                             Toast.makeText(MainActivity.this, "Los datos son incorrectos", Toast.LENGTH_LONG).show();
                         }
@@ -92,10 +92,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-    }
-    public void actualizarUI(FirebaseUser email){
+        //FirebaseUser usuarioActual = miAutenticacion.getCurrentUser();
+       // actualizarUI(usuarioActual);
 
-        if(email != null){
+    }
+
+    public void actualizarUI(FirebaseUser usuarioActual){
+        if(usuarioActual != null){
             Intent i = new Intent(MainActivity.this, activity_welcome.class);
             startActivity(i);
         }else{
@@ -114,13 +117,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void irRegistrarse(){
-        Intent i = new Intent(this, activity_profile.class);
+        Intent i = new Intent(MainActivity.this , activityNewUSer.class);
         startActivity(i);
     }
 
-    public void irLoginAdm(String usuario, String password){
+    public void irLoginAdm(String email, String password){
         Intent i = new Intent(this, AdmActivity.class);
-        i.putExtra("usuario", usuario);
+        i.putExtra("usuario", email);
         i.putExtra("password", password);
         startActivity(i);
     }

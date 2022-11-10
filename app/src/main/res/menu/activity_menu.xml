@@ -2,12 +2,12 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/perfil"
-        android:title="Novedades" />
+        android:id="@+id/Itemperfil"
+        android:title="Perfil" />
     <item
-        android:id="@+id/bancos"
+        android:id="@+id/itemLista"
         android:title=" Lista de Bancos" />
     <item
-        android:id="@+id/salir"
+        android:id="@+id/itemSalir"
         android:title="Salir" />
 </menu>

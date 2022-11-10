@@ -24,7 +24,8 @@ public class AdmActivity extends AppCompatActivity {
         buttonCrearBanco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i  = new Intent(AdmActivity.this, AgregarBanco.class);
+                startActivity(i);
 
             }
         });
