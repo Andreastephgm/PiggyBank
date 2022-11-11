@@ -8,6 +8,9 @@
         android:id="@+id/itemLista"
         android:title=" Lista de Bancos" />
     <item
+        android:id="@+id/Itemhome"
+        android:title="Home" />
+    <item
         android:id="@+id/itemSalir"
         android:title="Salir" />
 </menu>
