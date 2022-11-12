@@ -34,7 +34,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListarBancos extends AppCompatActivity {
+public class activity_listar_bancos_adm extends AppCompatActivity {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Banco");
@@ -46,7 +46,7 @@ public class ListarBancos extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listar_bancos);
+        setContentView(R.layout.activity_listar_bancos_adm);
 
         reciclerBancos = findViewById(R.id.reciclerbancos);
         listaBancos = new ArrayList<>();
@@ -72,10 +72,10 @@ public class ListarBancos extends AppCompatActivity {
             @Override
             private void onClick(View view, int position) {
                 AlertDialog dialogo = new AlertDialog
-                        .Builder(ListarBancos.this)
+                        .Builder(activity_listar_bancos_adm.this)
                         .setPositiveButton("Si", (dialog, which) -> {
                             Banco b = listaBancos.get(position);
-                            Intent i = new Intent(ListarBancos.this, EditarBanco.class);
+                            Intent i = new Intent(activity_listar_bancos_adm.this, EditarBanco.class);
                             i.putExtra("id", b.getId());
                             i.putExtra("nombre", b.getNombre());
                             i.putExtra("surcursal", b.getSurcursal());
@@ -97,7 +97,7 @@ public class ListarBancos extends AppCompatActivity {
             @Override
             public void onLongClick(View view, int position) {
                 AlertDialog dialogo = new AlertDialog
-                        .Builder(ListarBancos.this)
+                        .Builder(activity_listar_bancos_adm.this)
                         .setPositiveButton("Si", (dialog, which) -> {
                             //Agregar metodo borrar al controlador
                             Banco b = listaBancos.get(position);
@@ -215,23 +215,20 @@ public class ListarBancos extends AppCompatActivity {
     };
     @Override
     public boolean onCreateOptionsMenu (Menu menu){
-        getMenuInflater().inflate(R.menu.activity_menu, menu);
+        getMenuInflater().inflate(R.menu.activity_menuadm, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.itemSalir){
-            Intent i = new Intent(ListarBancos.this, MainActivity.class);
+        if(item.getItemId() == R.id.itemSaliradm){
+            Intent i = new Intent(activity_listar_bancos_adm.this, MainActivity.class);
             startActivity(i);
-        } if(item.getItemId() == R.id.itemLista){
-            Intent i = new Intent(ListarBancos.this, ListarBancos.class);
+        } if(item.getItemId() == R.id.itemListaadm){
+            Intent i = new Intent(activity_listar_bancos_adm.this, activity_listar_bancos_adm.class);
             startActivity(i);
-        }if(item.getItemId() == R.id.itemPerfil){
-            Intent i = new Intent(ListarBancos.this, activity_profile.class);
-            startActivity(i);
-        }if(item.getItemId() == R.id.itemHome){
-            Intent i = new Intent(ListarBancos.this, activity_welcome.class);
+        }if(item.getItemId() == R.id.itemVolveradm){
+            Intent i = new Intent(activity_listar_bancos_adm.this, AdmActivity.class);
             startActivity(i);
         }
         return true;

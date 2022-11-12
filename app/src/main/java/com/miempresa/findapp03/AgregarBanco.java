@@ -1,8 +1,12 @@
 package com.miempresa.findapp03;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -61,6 +65,26 @@ public class AgregarBanco extends AppCompatActivity {
             }
         });
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu){
+        getMenuInflater().inflate(R.menu.activity_menuadm, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.itemSaliradm){
+            Intent i = new Intent(AgregarBanco.this, MainActivity.class);
+            startActivity(i);
+        } if(item.getItemId() == R.id.itemListaadm){
+            Intent i = new Intent(AgregarBanco.this, activity_listar_bancos_adm.class);
+            startActivity(i);
+        }if(item.getItemId() == R.id.itemVolveradm){
+            Intent i = new Intent(AgregarBanco.this, AdmActivity.class);
+            startActivity(i);
+        }
+        return true;
     }
 
 }
