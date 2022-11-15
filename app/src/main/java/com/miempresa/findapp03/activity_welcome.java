@@ -30,18 +30,17 @@ public class activity_welcome extends AppCompatActivity {
         if(item.getItemId() == R.id.itemSalir){
             Intent i = new Intent(activity_welcome.this, MainActivity.class);
             startActivity(i);
-
         } if(item.getItemId() == R.id.itemLista){
             Intent i = new Intent(activity_welcome.this, ListarBancos.class);
             startActivity(i);
-        }if(item.getItemId() == R.id.Itemperfil){
+        }if(item.getItemId() == R.id.itemPerfil){
             Intent i = new Intent(activity_welcome.this, activity_profile.class);
+            startActivity(i);
+        }if(item.getItemId() == R.id.itemHome){
+            Intent i = new Intent(activity_welcome.this, activity_welcome.class);
             startActivity(i);
         }
         return true;
     }
-    
-
-
 
 }

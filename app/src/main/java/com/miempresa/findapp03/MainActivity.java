@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if(email.equals("admin") && password.equals("2010")){
                     Context context  = getApplicationContext();
-                    CharSequence texto = "El administrador ingreso con exito";
+                    CharSequence texto = "El administrador ingreso con exito nuevo";
                     int duracion = Toast.LENGTH_LONG;
                     Toast toast = Toast.makeText(context, texto, duracion);
                     toast.show();
