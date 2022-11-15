@@ -56,19 +56,10 @@ public class ListarBancos extends AppCompatActivity {
         reciclerBancos.setAdapter(adaptadorBancos);
         refrescarLista();
 
-        reciclerBancos = findViewById(R.id.reciclerbancos);
-        listaBancos = new ArrayList<>();
-        myRef.addChildEventListener(childEventListener);
-        adaptadorBancos = new AdaptadorBancos(listaBancos);
-        mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        reciclerBancos.setLayoutManager(mLayoutManager);
-        reciclerBancos.setItemAnimator(new DefaultItemAnimator());
-        reciclerBancos.setAdapter(adaptadorBancos);
-        refrescarLista();
-        /*
+
         reciclerBancos.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), reciclerBancos, new RecyclerTouchListener.ClickListener() {
             @Override
-            private void onClick(View view, int position) {
+            public void onClick(View view, int position) {
                 AlertDialog dialogo = new AlertDialog
                         .Builder(ListarBancos.this)
                         .setPositiveButton("Si", (dialog, which) -> {
@@ -118,7 +109,7 @@ public class ListarBancos extends AppCompatActivity {
                 dialogo.show();
 
             }
-        }));*/
+        }));
 
     }
 
