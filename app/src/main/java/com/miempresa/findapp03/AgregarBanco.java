@@ -3,6 +3,7 @@ package com.miempresa.findapp03;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -17,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -24,6 +27,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.util.Locale;
 import java.util.UUID;
 
 
@@ -32,12 +36,15 @@ public class AgregarBanco extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Banco");
 
+    private FusedLocationProviderClient fusedLocationClient;
+    //protected Location ultimaUbicacion;
+
     FirebaseStorage storage;
     StorageReference storageReference;
 
     private final int PICK_IMAGE_REQUEST = 22;
-    Button agregar, agregarImagen;
-    EditText etNombre, etNombreSucursal, etTipo, etDireccion, etHorario;
+    Button agregar, agregarImagen, ubicacion;
+    EditText etNombre, etNombreSucursal, etTipo, etDireccion, etHorario, etLatitud, etLongitud;
     ImageView imagenBanco;
     private Uri ubicacionImagen;
 
@@ -63,6 +70,7 @@ public class AgregarBanco extends AppCompatActivity {
 
     }
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +82,9 @@ public class AgregarBanco extends AppCompatActivity {
         etTipo = findViewById(R.id.ettipoin);
         etDireccion = findViewById(R.id.etdireccionin);
         etHorario = findViewById(R.id.ethorarioin);
+        etLatitud = findViewById(R.id.etLatitudIn);
+        etLongitud = findViewById(R.id.etLongitudIn);
+        ubicacion = findViewById(R.id.btnUbicacion);
         agregarImagen = findViewById(R.id.btnAgregarImagen);
         imagenBanco = findViewById(R.id.imageView);
         storage = FirebaseStorage.getInstance();
@@ -151,8 +162,7 @@ public class AgregarBanco extends AppCompatActivity {
                         }
                     }
             );
-
-
         }
+
     }
 }
