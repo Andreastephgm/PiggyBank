@@ -4,4 +4,4 @@
 </h2>
 <h2>DESCRIPTION</h2>
 <p>Piggy Bank is a project used to show my skills in developing Android in mobile development;this project allows the user to find the nearest bank or ATM from their/her actual location.PiggyBank is built in Android Studio using Java as a language and different firebase functions to authenticate users and maintain data.</p>
- <img src="https://github.com/Andreastephgm/PiggyBank/blob/master/app/src/main/res/drawable/PIGGYCARD.png" width="100" height="200" >
+ <img src="https://github.com/Andreastephgm/PiggyBank/blob/master/app/src/main/res/drawable/PIGGYCARD.png" width="400" height="800" >
