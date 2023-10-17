@@ -1,44 +1,26 @@
 {
   "project_info": {
-    "project_number": "748759751894",
-    "project_id": "findapp-695a8",
-    "storage_bucket": "findapp-695a8.appspot.com"
+    "project_number": "841749640509",
+    "project_id": "piggybank-ecfe4",
+    "storage_bucket": "piggybank-ecfe4.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:748759751894:android:8e089f3b1a753e48f2fd77",
+        "mobilesdk_app_id": "1:841749640509:android:b050190e4515101c5fc154",
         "android_client_info": {
           "package_name": "com.miempresa.findapp03"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "748759751894-44enuoltgstp3tcumhc6m8isavlm54kl.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.miempresa.findapp03",
-            "certificate_hash": "a2f67ef60c574ce0696bc44e03b89518ca1d2bd1"
-          }
-        },
-        {
-          "client_id": "748759751894-aoaveeo4cv6olcmmb0og818dv0d38k54.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyC7nPDqHnNmiPOEIytvbYKQd5wlwuN3zvA"
+          "current_key": "AIzaSyDFMs_lM99ufIBlVNqDgnP5J4Lidg5rlaI"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "748759751894-aoaveeo4cv6olcmmb0og818dv0d38k54.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

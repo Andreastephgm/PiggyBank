@@ -10,9 +10,10 @@ import android.view.MenuItem;
 
 
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class activity_welcome extends AppCompatActivity {
-
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +28,10 @@ public class activity_welcome extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
         if(item.getItemId() == R.id.itemSalir){
             Intent i = new Intent(activity_welcome.this, MainActivity.class);
+            mAuth.signOut();
             startActivity(i);
         } if(item.getItemId() == R.id.itemLista){
             Intent i = new Intent(activity_welcome.this, ListarBancos.class);

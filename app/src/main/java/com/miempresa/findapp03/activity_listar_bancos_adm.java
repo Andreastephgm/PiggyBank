@@ -35,7 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class activity_listar_bancos_adm extends AppCompatActivity {
-
+/*
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Banco");
     RecyclerView reciclerBancos;
@@ -122,7 +122,7 @@ public class activity_listar_bancos_adm extends AppCompatActivity {
             }
         }));*/
 
-    }
+  //  }
 
 
     private void delete(int position) {
@@ -132,25 +132,25 @@ public class activity_listar_bancos_adm extends AppCompatActivity {
         // we are use add listerner
         // for event listener method
         // which is called with query.
-        final String nombre = listaBancos.get(position).getNombre();
-        Query applesQuery = myRef.child(nombre);
+       // final String nombre = listaBancos.get(position).getNombre();
+        //Query applesQuery = myRef.child(nombre);
 
 
         //sQuery query = myRef.child(name);
-        applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+       // applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+           // @Override
+           // public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 // remove the value at reference
-                dataSnapshot.getRef().removeValue();
+                //dataSnapshot.getRef().removeValue();
 
             }
 
-            @Override
+           // @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });
-    }
+      //  });
+   // }
 
 
     @Override
@@ -160,19 +160,19 @@ public class activity_listar_bancos_adm extends AppCompatActivity {
     }
 
     public void borrarBanco(Banco b) {
-        bancos.remove(b);
+       // bancos.remove(b);
     }
 
     public void agregarMascota(Banco b) {
-        bancos.add(b);
+       // bancos.add(b);
         refrescarLista();
     }
 
     public void refrescarLista() {
-        if (adaptadorBancos == null) return;
-        listaBancos = bancos;
-        adaptadorBancos.setListaBancos(listaBancos);
-        adaptadorBancos.notifyDataSetChanged();
+      //  if (adaptadorBancos == null) return;
+       // listaBancos = bancos;
+       // adaptadorBancos.setListaBancos(listaBancos);
+        //adaptadorBancos.notifyDataSetChanged();
 
 
     }
@@ -196,7 +196,7 @@ public class activity_listar_bancos_adm extends AppCompatActivity {
         public void onChildRemoved(@NonNull DataSnapshot snapshot) {
 
             String bancoid = snapshot.getKey();
-            bancos.remove(snapshot);
+            //bancos.remove(snapshot);
             refrescarLista();
 
         }

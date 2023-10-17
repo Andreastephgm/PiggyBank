@@ -11,11 +11,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import com.google.firebase.auth.FirebaseUser;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 
 //import com.google.android.material.snackbar.Snackbar;
 
@@ -26,18 +29,20 @@ public class MainActivity extends AppCompatActivity {
     private EditText TextUser, TextPassword;
     private String email, password;
     Button buttonNewUSer;
-    private FirebaseAuth miAutenticacion;
+   private FirebaseAuth miAutenticacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        FirebaseApp.initializeApp(this);
         setContentView(R.layout.activity_main);
 
        buttonLogin = findViewById(R.id.buttonLogin);
        TextUser = findViewById(R.id.textUsername);
        TextPassword = findViewById(R.id.textPassword);
        buttonNewUSer = findViewById(R.id.buttonNewUser);
-       miAutenticacion = FirebaseAuth.getInstance();
+      miAutenticacion = FirebaseAuth.getInstance();
 
         buttonLogin.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -53,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
                     int duracion = Toast.LENGTH_LONG;
                     Toast toast = Toast.makeText(context, texto, duracion);
                     toast.show();
-                    irLoginAdm(email, password);
+
+                   irLoginAdm(email, password);
                 }
             }
         });
@@ -61,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
         buttonNewUSer.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, activityNewUSer.class);
+                startActivity(intent);
 
                 irRegistrarse();
             }
@@ -71,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
         miAutenticacion.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
@@ -92,8 +101,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        //FirebaseUser usuarioActual = miAutenticacion.getCurrentUser();
-       // actualizarUI(usuarioActual);
+        FirebaseUser usuarioActual = miAutenticacion.getCurrentUser();
+       actualizarUI(usuarioActual);
 
     }
 
