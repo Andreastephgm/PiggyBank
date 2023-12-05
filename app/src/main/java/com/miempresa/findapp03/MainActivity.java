@@ -117,14 +117,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-    public void irLogin(String usuario, String password){
-        Intent i = new Intent(this, ListarBancos.class);
-        i.putExtra("usuario", usuario);
-        i.putExtra("password", password);
-        startActivity(i);
-    }
-
     public void irRegistrarse(){
         Intent i = new Intent(MainActivity.this , activityNewUSer.class);
         startActivity(i);
