@@ -14,7 +14,7 @@
         android:layout_marginTop="48dp"
         android:layout_marginEnd="55dp"
         android:layout_marginBottom="46dp"
-        android:text="Mi Perfil"
+        android:text="My Profile"
         android:textAlignment="center"
         android:textColor="#8DC64B"
         android:textSize="24sp"
