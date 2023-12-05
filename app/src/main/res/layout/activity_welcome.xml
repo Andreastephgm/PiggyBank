@@ -101,7 +101,8 @@
                 android:fontFamily="sans-serif"
                 android:text="Premium!"
                 android:textColor="#FFCBDB"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                app:cornerRadius="20dp" />
 
         </LinearLayout>
     </ScrollView>
