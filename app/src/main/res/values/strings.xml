@@ -13,4 +13,10 @@
     <string name="todo">TODO</string>
     <string name="find_your_atm_with_a_click">Find your ATM with a click!</string>
     <string name="todoo">TODO</string>
+    <string name="logo_app">Logo app</string>
+    <string name="welcomeText">Welcome!</string>
+    <string name="find_your_bank_with_a_click">Find your bank with a click.</string>
+    <string name="_100_safe">100% safe</string>
+    <string name="jobs">Jobs</string>
+    <string name="contact">Contact</string>
 </resources>

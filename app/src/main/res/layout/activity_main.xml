@@ -10,7 +10,6 @@
         android:id="@+id/buttonNewUser"
         android:layout_width="273dp"
         android:layout_height="51dp"
-        android:backgroundTint="#92BF2F"
         android:text="New User"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

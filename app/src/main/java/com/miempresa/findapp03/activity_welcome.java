@@ -7,18 +7,45 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class activity_welcome extends AppCompatActivity {
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    TextView welcome;
+    Button jobsButton;
+    Button contactButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+        welcome = findViewById(R.id.welcomeTextView);
+        jobsButton = findViewById(R.id.jobsButton);
+        contactButton = findViewById(R.id.contactButton);
+
+        jobsButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity_welcome.this, activity_profile.class);
+                startActivity(intent);
+            }
+        });
+        contactButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity_welcome.this, activity_profile.class);
+                startActivity(intent);
+            }
+        });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu (Menu menu){
