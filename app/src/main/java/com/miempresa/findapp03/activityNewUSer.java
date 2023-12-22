@@ -3,12 +3,21 @@ package com.miempresa.findapp03;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContract;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +30,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,6 +38,7 @@ import java.util.Map;
 public class activityNewUSer extends AppCompatActivity {
     Button buttonCrearNewUser;
     EditText  idName, idLastName, idEdad, idEmail, idPassword;
+    ImageView photoNewUser;
     FirebaseAuth myAuth;
     FirebaseFirestore mFirestore;
 
@@ -40,6 +51,7 @@ public class activityNewUSer extends AppCompatActivity {
        myAuth = FirebaseAuth.getInstance();
        mFirestore = FirebaseFirestore.getInstance();
 
+       photoNewUser = findViewById(R.id.photoNewUserImageView);
        idName= findViewById(R.id.idNombre);
        idLastName = findViewById(R.id.idApellido);
        idEdad = findViewById(R.id.idEdad);
@@ -65,7 +77,29 @@ public class activityNewUSer extends AppCompatActivity {
             }
 
         });
+
+         photoNewUser.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 launchStorage.launch(new Intent(MediaStore.ACTION_PICK_IMAGES));
+                 //launchStorage.launch(new Intent(MediaStore.ACTION_IMAGE_CAPTURE));
+             }
+         });
     }
+
+    ActivityResultLauncher<Intent>launchStorage = registerForActivityResult(new ActivityResultContracts.StartActivityForResult()
+            , new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult o) {
+                    if(o.getResultCode() == RESULT_OK){
+                        Bundle extras = o.getData().getExtras();
+                        Bitmap imgBitmap = (Bitmap) (Bitmap) extras.get("data");
+                        photoNewUser.setImageBitmap(imgBitmap);
+                    }
+                }
+    });
+
+
 
     public void checkCrednetials(String nameUser, String lastNameUser,String ageUser, String emailUser, String passwordUser){
 

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Jobs">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rubikbubblesregular"
+                android:padding="20dp"
+                android:text="Jobs"
+                android:textAlignment="center"
+                android:textColor="#92BF2F"
+                android:textSize="50sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="@drawable/gradientone"
+                android:orientation="vertical"
+                android:layout_margin="20dp"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/candalregular"
+                    android:text="Software Developer"
+                    android:textColor="#FC6C85"
+                    android:textSize="25sp"/>
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Location: California, USA"/>
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Regular Full-Time"/>
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Relevant experience of +3 years in C# OOP MVC, Web API, ASP .NET, Windows Services, Web Services (SOAP y/o RESTful). Front-end development (HTML, Angular 2+, CSS) SQL Server Principles and design patterns"
+                    android:justificationMode="inter_word"/>
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/candalregular"
+                    android:minHeight="46dp"
+                    android:text="Apply" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/gradientone">
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/candalregular"
+                    android:text="React Native Developer LATAM"
+                    android:textColor="#FC6C85"
+                    android:textSize="23sp" />
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Location: Bogotá, Colombia" />
+
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Regular Full-Time" />
+
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:text="Proven 3+ years experience in mobile development using React Native. Strong proficiency in JavaScript, TypeScript, and ES6+. Knowledge of mobile app design principles and user experience best practices. Familiarity with RESTful APIs and asynchronous programming. Experience with version control systems (e.g., Git). Excellent problem-solving skills and attention to detail. Strong communication and teamwork skills. " />
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/candalregular"
+                    android:minHeight="46dp"
+                    android:text="Apply"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/gradientone">
+
+                <TextView
+                    android:id="@+id/textView25"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/candalregular"
+                    android:text="Talent Pathway"
+                    android:textColor="#FC6C85"
+                    android:textSize="23sp" />
+
+                <TextView
+                    android:id="@+id/textView26"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Location: Oakville, Ontario" />
+
+                <TextView
+                    android:id="@+id/textView27"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Regular Full-Time" />
+
+                <TextView
+                    android:id="@+id/textView28"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:text="Students of Communication or similar occupations looking to complete their internship.Have the approval of the university for signing internship contract .Not having signed apprenticeship contracts previously. Strong written and verbal communication skills.
+                    Detail-oriented, proactive with a creative mindset. Canva And adobe suite handling is a plus. Ability to work collaboratively in a team environment." />
+
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/candalregular"
+                    android:minHeight="46dp"
+                    android:text="Apply"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,114 +6,171 @@
     android:layout_height="match_parent"
     tools:context=".activity_profile">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="220dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="46dp"
-        android:text="My Profile"
-        android:textAlignment="center"
-        android:textColor="#8DC64B"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.205" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="138dp"
-        android:layout_height="103dp"
-        android:layout_marginStart="93dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="93dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@drawable/fotoperfil" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="334dp"
-        android:layout_height="406dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
-        android:orientation="vertical"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/editTextTextPersonName3"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Nombre: " />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="20dp"
+            android:paddingHorizontal="20dp">
 
-        <EditText
-            android:id="@+id/editTextTextPersonName4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Apellidos:" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="220dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="54dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="55dp"
+                android:text="My Profile"
+                android:textAlignment="center"
+                android:textColor="#8DC64B"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/candalregular"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date|text"
-            android:text="Fecha de Nacimiento:" />
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imageView6"
+                android:layout_width="150dp"
+                android:layout_height="160dp"
+                android:layout_marginBottom="20dp"
+                app:srcCompat="@drawable/fotoperfil"
+                tools:ignore="MissingClass"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/roundedImageView"/>
 
-        <EditText
-            android:id="@+id/editTextTextPersonName5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Dirección:" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutUserNameProfile"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                app:endIconMode="clear_text">
 
-        <EditText
-            android:id="@+id/editTextPhone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="phone"
-            android:text="Telefono:" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextTextPersonName3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:layout_marginBottom="10dp"
+                android:text="Name" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/editTextTextEmailAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            android:text="Email:" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutLastNameProfile"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Last Name"
+                app:endIconMode="clear_text">
 
-        <Button
-            android:id="@+id/btnAgregar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#8BC34A"
-            android:text="Actualizar Datos"
-            android:textColor="#FFFFFF" />
+                <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextTextPersonName4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                    android:layout_marginBottom="10dp"
+                android:text="Last Name"
+                tools:ignore="MissingClass" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="match_parent"
-            android:layout_height="51dp"
-            android:backgroundTint="#8BC34A"
-            android:text="Cambiar Contraseña" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/DateOfBirthProfile"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Date of birth"
+                app:endIconMode="clear_text">
 
-    </LinearLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date|text"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:text="Date of birth" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/AddressProfile"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Address"
+                android:layout_marginBottom="10dp"
+                app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextTextPersonName5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Address" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phoneProfile"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Phone"
+                android:layout_marginBottom="10dp"
+                app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="phone"
+                android:text="Phone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailProfile"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:layout_marginBottom="10dp"
+                app:endIconMode="clear_text">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextTextEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:text="Email:" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnAgregar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#8BC34A"
+                android:text="Update Profile"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/rubikbubblesregular"/>
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:backgroundTint="#8BC34A"
+                android:text="Change Password"
+                android:fontFamily="@font/rubikbubblesregular"
+                android:layout_marginBottom="20dp"/>
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

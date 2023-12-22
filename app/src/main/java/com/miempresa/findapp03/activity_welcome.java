@@ -33,14 +33,14 @@ public class activity_welcome extends AppCompatActivity {
         jobsButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(activity_welcome.this, activity_profile.class);
+                Intent intent = new Intent(activity_welcome.this, Jobs.class);
                 startActivity(intent);
             }
         });
         contactButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(activity_welcome.this, activity_profile.class);
+                Intent intent = new Intent(activity_welcome.this, contact.class);
                 startActivity(intent);
             }
         });

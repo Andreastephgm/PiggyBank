@@ -19,4 +19,9 @@
     <string name="_100_safe">100% safe</string>
     <string name="jobs">Jobs</string>
     <string name="contact">Contact</string>
+    <string name="contactTitle">Contact</string>
+    <string name="messageContact">Message</string>
+    <string name="email">Email</string>
+    <string name="write_your_request_please">Write your request, please!</string>
+    <string name="send">Send</string>
 </resources>
