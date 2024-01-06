@@ -3,14 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/itemPerfil"
-        android:title="Perfil" />
+        android:title="profile" />
     <item
         android:id="@+id/itemLista"
-        android:title=" Lista de Bancos" />
+        android:title="Bank List" />
     <item
         android:id="@+id/itemHome"
         android:title="Home" />
     <item
         android:id="@+id/itemSalir"
-        android:title="Salir" />
+        android:title="Exit" />
 </menu>

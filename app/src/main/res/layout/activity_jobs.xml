@@ -28,7 +28,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/gradientone"
                 android:orientation="vertical"
                 android:layout_margin="20dp"
@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/candalregular"
                     android:text="Software Developer"
-                    android:textColor="#FC6C85"
+                    android:textColor="#535B61"
                     android:textSize="25sp"/>
 
                 <TextView
@@ -66,15 +66,19 @@
                     android:id="@+id/button2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/candalregular"
-                    android:minHeight="46dp"
-                    android:text="Apply" />
+                    android:background="#90BFFE"
+                    android:fontFamily="@font/rubikbubblesregular"
+                    android:text="APPLY"
+                    android:textAlignment="center"
+                    android:textColor="#535B61"
+                    android:textSize="18sp"
+                    app:backgroundTint="@null" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="350dp"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:padding="20dp"
                 android:layout_margin="20dp"
@@ -86,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/candalregular"
                     android:text="React Native Developer LATAM"
-                    android:textColor="#FC6C85"
+                    android:textColor="#535B61"
                     android:textSize="23sp" />
 
                 <TextView
@@ -112,9 +116,15 @@
                     android:id="@+id/button4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/candalregular"
-                    android:minHeight="46dp"
-                    android:text="Apply"/>
+                    android:background="#90BFFE"
+                    android:fontFamily="@font/rubikbubblesregular"
+                    android:text="APPLY"
+                    android:textAlignment="center"
+                    android:textColor="#535B61"
+                    android:textSize="18sp"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginTop="20dp"
+                    app:backgroundTint="@null"/>
             </LinearLayout>
 
             <LinearLayout
@@ -131,7 +141,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/candalregular"
                     android:text="Talent Pathway"
-                    android:textColor="#FC6C85"
+                    android:textColor="#535B61"
                     android:textSize="23sp" />
 
                 <TextView
@@ -158,9 +168,14 @@
                     android:id="@+id/button5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/candalregular"
-                    android:minHeight="46dp"
-                    android:text="Apply"/>
+                    android:background="#90BFFE"
+                    android:fontFamily="@font/rubikbubblesregular"
+                    android:text="APPLY"
+                    android:textAlignment="center"
+                    android:textColor="#535B61"
+                    android:textSize="18sp"
+                    android:layout_marginTop="20dp"
+                    app:backgroundTint="@null"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

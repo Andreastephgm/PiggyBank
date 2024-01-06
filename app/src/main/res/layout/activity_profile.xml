@@ -32,19 +32,20 @@
                 android:text="My Profile"
                 android:textAlignment="center"
                 android:textColor="#8DC64B"
-                android:textSize="24sp"
+                android:textSize="30sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/candalregular"/>
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/imageView6"
-                android:layout_width="150dp"
-                android:layout_height="160dp"
+                android:id="@+id/profileImageView"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_marginBottom="20dp"
-                app:srcCompat="@drawable/fotoperfil"
-                tools:ignore="MissingClass"
                 android:scaleType="centerCrop"
-                app:shapeAppearanceOverlay="@style/roundedImageView"/>
+                app:strokeColor="#9BFAB0"
+                app:shapeAppearanceOverlay="@style/roundedImageView"
+                app:srcCompat="@drawable/defaultprofilephoto"
+                tools:ignore="MissingClass" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutUserNameProfile"
@@ -52,10 +53,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Name"
+                app:boxStrokeColor="#9BFAB0"
                 app:endIconMode="clear_text">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextTextPersonName3"
+                android:id="@+id/nameProfileTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -70,10 +72,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Last Name"
+                app:boxStrokeColor="#9BFAB0"
                 app:endIconMode="clear_text">
 
                 <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextTextPersonName4"
+                android:id="@+id/lastnameProfileTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -89,15 +92,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Date of birth"
+                app:boxStrokeColor="#9BFAB0"
                 app:endIconMode="clear_text">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="date|text"
-                android:layout_marginBottom="10dp"
-                android:ems="10"
-                android:text="Date of birth" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dateofbirthTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:ems="10"
+                    android:inputType="date|text"
+                    android:text="Date of birth" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -110,9 +115,10 @@
                 app:endIconMode="clear_text">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextTextPersonName5"
+                android:id="@+id/addressProfileTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:boxStrokeColor="#9BFAB0"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Address" />
@@ -124,11 +130,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Phone"
+                app:boxStrokeColor="#9BFAB0"
                 android:layout_marginBottom="10dp"
                 app:endIconMode="clear_text">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextPhone"
+                android:id="@+id/phoneProfileTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -142,10 +149,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
+                app:boxStrokeColor="#9BFAB0"
                 android:layout_marginBottom="10dp"
                 app:endIconMode="clear_text">
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextTextEmailAddress"
+                android:id="@+id/emailProfileTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -154,22 +162,30 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/btnAgregar"
+                android:id="@+id/updateProfileButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#8BC34A"
-                android:text="Update Profile"
-                android:textColor="#FFFFFF"
-                android:fontFamily="@font/rubikbubblesregular"/>
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/gradientone"
+                android:fontFamily="@font/candalregular"
+                android:text="UPDATE PROFILE"
+                android:textAlignment="center"
+                android:textColor="#535B61"
+                android:textSize="16sp"
+                app:backgroundTint="@null"/>
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/changePasswordButton"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:backgroundTint="#8BC34A"
-                android:text="Change Password"
-                android:fontFamily="@font/rubikbubblesregular"
-                android:layout_marginBottom="20dp"/>
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/gradientone"
+                android:fontFamily="@font/candalregular"
+                android:text="CHANGE PASSWORD"
+                android:textAlignment="center"
+                android:textColor="#535B61"
+                android:textSize="16sp"
+                app:backgroundTint="@null"/>
         </LinearLayout>
     </ScrollView>
 

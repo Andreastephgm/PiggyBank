@@ -154,7 +154,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <Button
-        android:id="@+id/btnAgregar"
+        android:id="@+id/updateProfileButton"
         android:layout_width="205dp"
         android:layout_height="47dp"
         android:layout_marginStart="116dp"
@@ -231,7 +231,7 @@
         android:textAlignment="viewStart"
         android:textColor="#0B0000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnAgregar"
+        app:layout_constraintBottom_toTopOf="@+id/updateProfileButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etLatitudIn"
         app:layout_constraintVertical_bias="0.0" />
@@ -245,7 +245,7 @@
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="9dp"
         android:text="Ubicación"
-        app:layout_constraintBottom_toTopOf="@+id/btnAgregar"
+        app:layout_constraintBottom_toTopOf="@+id/updateProfileButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etLongitudIn" />

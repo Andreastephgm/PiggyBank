@@ -20,7 +20,7 @@ public class EditarBanco extends AppCompatActivity {
         etTipo = findViewById(R.id.ettipoin);
         etDireccion = findViewById(R.id.etdireccionin);
         etHorario = findViewById(R.id.ethorarioin);
-        editar = findViewById(R.id.btnAgregar);
+        editar = findViewById(R.id.updateProfileButton);
 
         Bundle extras = getIntent().getExtras();
         String nombre = extras.getString("nombre");
