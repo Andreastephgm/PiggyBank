@@ -47,6 +47,26 @@
                 app:srcCompat="@drawable/defaultprofilephoto"
                 tools:ignore="MissingClass" />
 
+            <TextView
+                android:id="@+id/nicknameTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nickname"
+                android:textSize="23sp"
+                android:textColor="#9BFAB0"
+                android:fontFamily="@font/candalregular"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/userIDTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:textColor="#90BFFE"
+                android:fontFamily="@font/candalregular"
+                android:text="Id" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutUserNameProfile"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -105,43 +125,6 @@
                     android:text="Date of birth" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/AddressProfile"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Address"
-                android:layout_marginBottom="10dp"
-                app:endIconMode="clear_text">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/addressProfileTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxStrokeColor="#9BFAB0"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Address" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/phoneProfile"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Phone"
-                app:boxStrokeColor="#9BFAB0"
-                android:layout_marginBottom="10dp"
-                app:endIconMode="clear_text">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/phoneProfileTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="phone"
-                android:text="Phone" />
-            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/emailProfile"
@@ -161,8 +144,26 @@
                 android:text="Email:" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                app:boxStrokeColor="#9BFAB0"
+                android:layout_marginBottom="10dp"
+                app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordProfileTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textEmailAddress"
+                    android:text="Password:" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
             <Button
-                android:id="@+id/updateProfileButton"
+                android:id="@+id/addBankAdminButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"

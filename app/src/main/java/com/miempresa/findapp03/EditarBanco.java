@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class EditarBanco extends AppCompatActivity {
-
+/*
     EditText etNombre, etSurcursal, etTipo, etDireccion, etHorario;
     Button editar;
     @Override
@@ -50,4 +50,6 @@ public class EditarBanco extends AppCompatActivity {
     public int editarBanco(){
         return 1;
     }
+    
+ */
 }

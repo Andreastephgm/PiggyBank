@@ -12,7 +12,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
@@ -20,27 +20,28 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="40dp">
+                android:layout_marginTop="40dp"
+                tools:ignore="UseCompoundDrawables">
 
 
                 <TextView
                     android:id="@+id/textView20"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Piggy Bank"
+                    android:text="@string/piggy_bank"
                     android:textAlignment="textEnd"
                     android:textSize="40sp"
                     android:textColor="#92BF2F"
                     android:fontFamily="@font/rubikbubblesregular"
-                    android:layout_marginRight="0dp"/>
+                    android:layout_marginEnd="0dp"/>
 
                 <ImageView
                     android:id="@+id/imageMision"
-                    android:layout_width="189dp"
+                    android:layout_width="100dp"
                     android:layout_height="95dp"
-                    android:layout_marginRight="0dp"
-                    tools:srcCompat="@drawable/piggybanklogo" />
+                    tools:srcCompat="@drawable/piggybanklogo"
+                    android:contentDescription="@string/piggybank_logo" />
             </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -48,7 +49,8 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="50dp"
                 android:layout_marginHorizontal="30dp"
-                app:boxStrokeColor="#9BFAB0"
+                app:boxStrokeColor="#90BFFE"
+                app:boxStrokeWidth="3dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:endIconMode="clear_text">
                 <com.google.android.material.textfield.TextInputEditText
@@ -56,8 +58,8 @@
                     android:layout_height="match_parent"
                     android:id="@+id/textUsername"
                     android:ems="10"
-                    android:hint="Username"
-                    android:text="Username"
+                    android:hint="@string/username"
+                    android:fontFamily="@font/candalregular"
                     android:inputType="textPersonName"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,15 +68,16 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
                 android:layout_marginHorizontal="30dp"
-                app:boxStrokeColor="#9BFAB0"
+                app:boxStrokeColor="#90BFFE"
+                app:boxStrokeWidth="3dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passwordMainTextView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Password"
-                    android:text="Password"
+                    android:hint="@string/password"
+                    android:fontFamily="@font/candalregular"
                     android:inputType="textPassword"
                     app:endIconMode="clear_text" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -85,8 +88,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/gradientone"
-                android:fontFamily="@font/rubikbubblesregular"
-                android:text="Enter"
+                android:fontFamily="@font/candalregular"
+                android:text="@string/enter"
                 android:textAlignment="center"
                 android:textColor="#535B61"
                 android:textSize="20sp"
@@ -98,14 +101,14 @@
                 android:id="@+id/buttonNewUser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="New User"
-                android:fontFamily="@font/rubikbubblesregular"
+                android:text="@string/new_user"
+                android:fontFamily="@font/candalregular"
                 android:textColor="#535B61"
                 android:background="@drawable/gradientone"
                 android:layout_marginTop="80dp"
                 android:layout_marginHorizontal="70dp"
                 android:paddingVertical="10dp"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 app:backgroundTint="@null"/>
 
         </LinearLayout>

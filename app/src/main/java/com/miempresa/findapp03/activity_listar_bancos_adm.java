@@ -224,12 +224,6 @@ public class activity_listar_bancos_adm extends AppCompatActivity {
         if(item.getItemId() == R.id.itemSaliradm){
             Intent i = new Intent(activity_listar_bancos_adm.this, MainActivity.class);
             startActivity(i);
-        } if(item.getItemId() == R.id.itemListaadm){
-            Intent i = new Intent(activity_listar_bancos_adm.this, activity_listar_bancos_adm.class);
-            startActivity(i);
-        }if(item.getItemId() == R.id.itemVolveradm){
-            Intent i = new Intent(activity_listar_bancos_adm.this, AdmActivity.class);
-            startActivity(i);
         }
         return true;
     }

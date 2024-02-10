@@ -2,15 +2,15 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/itemPerfil"
+        android:id="@+id/itemProfile"
         android:title="profile" />
     <item
-        android:id="@+id/itemLista"
+        android:id="@+id/itemList"
         android:title="Bank List" />
     <item
         android:id="@+id/itemHome"
         android:title="Home" />
     <item
-        android:id="@+id/itemSalir"
+        android:id="@+id/itemExit"
         android:title="Exit" />
 </menu>

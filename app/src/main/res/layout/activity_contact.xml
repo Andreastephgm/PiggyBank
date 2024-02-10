@@ -23,7 +23,7 @@
             android:fontFamily="@font/rubikbubblesregular"
             android:gravity="center"
             android:padding="20sp"
-            android:text="@string/contactTitle"
+            android:text="@string/help"
             android:textColor="#92BF2F"
             android:textSize="40sp" />
 
@@ -45,12 +45,14 @@
             android:layout_height="wrap_content"
             android:hint="@string/email"
             app:endIconMode="clear_text"
-            app:boxStrokeColor="#9BFAB0">
+            app:boxStrokeColor="#90BFFE"
+            app:boxStrokeWidth="3dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailContactTextField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/candalregular"
                 android:layout_margin="20dp"
                 android:inputType="textEmailAddress"
                 tools:ignore="ExtraText" />
@@ -62,13 +64,15 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:hint="@string/messageContact"
-            app:boxStrokeColor="#9BFAB0"
+            app:boxStrokeColor="#90BFFE"
+            app:boxStrokeWidth="3dp"
             app:endIconMode="clear_text">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/messageTextField"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
+                android:fontFamily="@font/candalregular"
                 android:layout_marginHorizontal="20dp"
                 android:inputType="textMultiLine"
                 android:paddingBottom="100dp" />
@@ -82,7 +86,7 @@
             android:layout_marginBottom="20dp"
             android:background="@drawable/gradientone"
             android:fontFamily="@font/candalregular"
-            android:text="SEND"
+            android:text="@string/send"
             android:textAlignment="center"
             android:textColor="#535B61"
             android:layout_marginHorizontal="50dp"

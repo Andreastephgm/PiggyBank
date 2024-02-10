@@ -1,12 +1,14 @@
 package com.miempresa.findapp03;
 
-import androidx.annotation.Nullable;
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -16,56 +18,33 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 
 public class AgregarBanco extends AppCompatActivity {
+    ImageView bankImage;
+    Uri image;
+    EditText bankName;
+    EditText address;
+    EditText schedule;
+    EditText latitude;
+    EditText longitude;
+    EditText type;
+    Button location;
+    Button addRegister;
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("Banco");
+    FirebaseFirestore storeFirestore;
+    StorageReference storeStorage;
 
-    private FusedLocationProviderClient fusedLocationClient;
-    //protected Location ultimaUbicacion;
-
-    FirebaseStorage storage;
-    StorageReference storageReference;
-
-    private final int PICK_IMAGE_REQUEST = 22;
-    Button agregar, agregarImagen, ubicacion;
-    EditText etNombre, etNombreSucursal, etTipo, etDireccion, etHorario, etLatitud, etLongitud;
-    ImageView imagenBanco;
-    private Uri ubicacionImagen;
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_REQUEST
-                && resultCode == RESULT_OK && data != null
-                && data.getData() != null) {
-            ubicacionImagen = data.getData();
-
-            try{
-                Bitmap imagen = MediaStore.Images.Media.getBitmap(getContentResolver(), ubicacionImagen);
-                imagenBanco.setImageBitmap(imagen);
-
-            }catch(IOException e){
-                e.printStackTrace();
-
-            }
-
-        }
-
-    }
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -73,93 +52,88 @@ public class AgregarBanco extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_banco);
 
-        agregar = findViewById(R.id.updateProfileButton);
-        etNombre = findViewById(R.id.etnombrein);
-        etNombreSucursal = findViewById(R.id.etsurcursalin);
-        etTipo = findViewById(R.id.ettipoin);
-        etDireccion = findViewById(R.id.etdireccionin);
-        etHorario = findViewById(R.id.ethorarioin);
-        etLatitud = findViewById(R.id.etLatitudIn);
-        etLongitud = findViewById(R.id.etLongitudIn);
-        ubicacion = findViewById(R.id.btnUbicacion);
-        agregarImagen = findViewById(R.id.btnAgregarImagen);
-        imagenBanco = findViewById(R.id.imageView);
-        storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference();
+        storeFirestore = FirebaseFirestore.getInstance();
+        storeStorage = FirebaseStorage.getInstance().getReference();
 
-        agregarImagen.setOnClickListener(new View.OnClickListener() {
+        bankImage = findViewById(R.id.addBankImageView);
+        bankName = findViewById(R.id.nameBankText);
+        address = findViewById(R.id.addressText);
+        schedule = findViewById(R.id.scheduleText);
+        latitude = findViewById(R.id.latitudeText);
+        longitude = findViewById(R.id.longuitudeText);
+        type = findViewById(R.id.typeText);
+        addRegister = findViewById(R.id.addBankAdminButton);
+        location = findViewById(R.id.bankListAdminButton);
+
+
+        addRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String bank = bankName.getText().toString();
+                String bankAddress = address.getText().toString();
+                String bankSchedule = schedule.getText().toString();
+                String bankLatitude = latitude.getText().toString();
+                String bankLongitude = longitude.getText().toString();
+                String bankType = type.getText().toString();
+                upload();
 
-                cargarImagen();
-            }
-        });
+                Map<String, Object> map = new HashMap<>();
+                map.put("bank", bank);
+                map.put("Address", bankAddress);
+                map.put("Schedule", bankSchedule);
+                map.put("Latitude", bankLatitude);
+                map.put("Longitude", bankLongitude);
+                map.put("Type", bankType);
 
-        imagenBanco.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                seleccionarImagen();
-            }
-        });
-
-        agregar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String nombre = etNombre.getText().toString();
-                String sucursal = etNombreSucursal.getText().toString();
-                String tipo = etTipo.getText().toString();
-                String direccion = etDireccion.getText().toString();
-                String horario = etHorario.getText().toString();
-
-                Banco b = new Banco();
-                b.setNombre(nombre);
-                b.setSurcursal(sucursal);
-                b.setTipo(tipo);
-                b.setDireccion(direccion);
-                b.setHorario(horario);
-
-                myRef.push().setValue(b);
-
-                Toast.makeText(getApplicationContext(), "El banco se agrego con exito", Toast.LENGTH_LONG).show();
-                etNombre.setText("");
-                etNombreSucursal.setText("");
-                etTipo.setText("");
-                etDireccion.setText("");
-                etHorario.setText("");
-
-            }
-        });
-
-    }
-    public void seleccionarImagen(){
-
-        Intent i = new Intent();
-        i.setType("image/*");
-        i.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(i,"Seleccione la imagen"), PICK_IMAGE_REQUEST);
-
-    }
-
-    public void cargarImagen () {
-
-        if (ubicacionImagen != null) {
-
-            ProgressDialog progressDialog = new ProgressDialog(this);
-            progressDialog.setTitle("Cargando");
-            progressDialog.show();
-
-            StorageReference ref = storageReference.child("images/" + UUID.randomUUID().toString());
-            ref.putFile(ubicacionImagen).addOnSuccessListener(
-                    new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            progressDialog.dismiss();
-                            Toast.makeText(AgregarBanco.this, "Se cargo la imagen", Toast.LENGTH_LONG)
-                                    .show();
-                        }
+                storeFirestore.collection("Banks").document(bank).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(AgregarBanco.this, "Saved", Toast.LENGTH_SHORT).show();
                     }
-            );
-        }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(AgregarBanco.this, "Failed", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
+            }
+        });
+
+        bankImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                launchStorage.launch(intent);
+            }
+        });
     }
+
+
+    ActivityResultLauncher<Intent> launchStorage = registerForActivityResult(new ActivityResultContracts.StartActivityForResult()
+            , new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult o) {
+                    if(o.getResultCode() == RESULT_OK){
+                        image = o.getData().getData();
+                        bankImage.setImageURI(image);
+                    }
+                }
+            });
+
+    private void upload(){
+        StorageReference reference = storeStorage.child("images/" + UUID.randomUUID().toString());
+        reference.putFile(image).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Toast.makeText(AgregarBanco.this,"Great!", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(AgregarBanco.this,"Fail!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 }

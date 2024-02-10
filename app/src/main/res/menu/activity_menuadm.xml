@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/itemListaadm"
-        android:title="Bank List" />
-    <item
-        android:id="@+id/itemVolveradm"
-        android:title="Add Banks" />
-    <item android:title="Home" />
+
     <item
         android:id="@+id/itemSaliradm"
-        android:title="Exit" />
+        android:title="@string/exit" />
 </menu>

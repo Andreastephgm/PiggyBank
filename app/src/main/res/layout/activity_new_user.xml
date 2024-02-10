@@ -5,119 +5,153 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="20dp">
+        android:layout_height="match_parent">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/photoNewUserImageView"
-            android:layout_width="120sp"
-            android:layout_height="120dp"
-            android:layout_gravity="center"
-            android:scaleType="centerCrop"
-            app:shapeAppearanceOverlay="@style/roundedImageView"
-            app:srcCompat="@drawable/defaultprofilephoto"
-            tools:ignore="MissingClass" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutUsernameNewUser"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
-            app:endIconMode="clear_text">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/idNombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"/>
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_margin="20dp"
+            android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutLastnameNewUser"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Last name"
-            android:layout_marginBottom="10dp"
-            app:endIconMode="clear_text">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/idApellido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"/>
-        </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20dp"
+                android:fontFamily="@font/rubikbubblesregular"
+                android:text="@string/sign_up"
+                android:textAlignment="center"
+                android:textColor="#8DC64B"
+                android:textSize="30sp" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ageNewUser"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Age"
-            android:layout_marginBottom="10dp"
-            app:endIconMode="clear_text">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/photoNewUserImageView"
+                android:layout_width="120sp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/roundedImageView"
+                app:srcCompat="@drawable/defaultprofilephoto"
+                tools:ignore="MissingClass" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/idEdad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:minHeight="48dp" />
-        </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutNicknameNewUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="@string/nickname"
+                app:endIconMode="clear_text">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailNewUser"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            app:endIconMode="clear_text">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/idNickname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/idCorreo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
-            android:minHeight="48dp" />
-        </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutUsernameNewUser"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="@string/username"
+                app:endIconMode="clear_text">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passwordNewUser"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            app:endIconMode="clear_text">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/idPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:layout_marginBottom="10dp"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/idNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/NewUser"
-            android:layout_width="match_parent"
-            android:layout_height="60sp"
-            android:backgroundTint="#8BC34A"
-            android:text="CREATE"
-            android:fontFamily="@font/rubikbubblesregular"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutLastnameNewUser"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="@string/last_name"
+                app:endIconMode="clear_text">
 
-    </LinearLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/idApellido"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ageNewUser"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="@string/date_of_birth"
+                app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/idEdad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:minHeight="48dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailNewUser"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email"
+                app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/idCorreo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:minHeight="48dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordNewUser"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/idPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:minHeight="48dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/NewUser"
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:layout_marginVertical="20dp"
+                android:background="@drawable/gradientone"
+                android:fontFamily="@font/rubikbubblesregular"
+                android:text="@string/create_account"
+                android:textColor="#535B61"
+                android:textSize="20sp"
+                app:backgroundTint="@null" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
